@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct CurrentWeather: Codable {
     let temperature: Double
     let humidity: Int

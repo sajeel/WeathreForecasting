@@ -7,10 +7,20 @@
 
 import Foundation
 
-struct DailyForecast: Codable, Identifiable {
-    var id = UUID()
+public struct DailyForecast: Identifiable, Codable {
+    public var id = UUID()
     let date: Date
-    let temperatureHigh: Double
-    let temperatureLow: Double
+    let highTemperature: Double
+    let lowTemperature: Double
     let condition: String
+    
+    public init(id: UUID = UUID(), date: Date, highTemperature: Double, lowTemperature: Double, condition: String) {
+        self.id = id
+        self.date = date
+        self.highTemperature = highTemperature
+        self.lowTemperature = lowTemperature
+        self.condition = condition
+    }
 }
+
+ 

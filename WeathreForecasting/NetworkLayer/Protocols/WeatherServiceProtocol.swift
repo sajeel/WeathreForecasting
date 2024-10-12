@@ -9,6 +9,8 @@ import Foundation
 import Combine
 // MARK: - Services
 
+ 
 protocol WeatherServiceProtocol {
-    func fetchWeather(for city: String) -> AnyPublisher<WeatherData, Error>
+    func fetchWeather(for city: String) -> AnyPublisher<WeatherResponse, Error>
 }
+

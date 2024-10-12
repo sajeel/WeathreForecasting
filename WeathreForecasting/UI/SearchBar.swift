@@ -16,10 +16,12 @@ struct SearchBar: View {
         HStack {
             TextField("Enter city name", text: $text)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .accessibility(identifier: "Enter city name")
             
             Button(action: onSearchButtonClicked) {
                 Image(systemName: "magnifyingglass")
             }
+            .accessibility(identifier: "Fetch Weather")
         }
         .padding()
     }

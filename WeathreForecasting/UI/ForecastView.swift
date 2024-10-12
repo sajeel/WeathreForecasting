@@ -8,23 +8,18 @@
 import SwiftUI
  
 struct ForecastView: View {
-    let forecast: [DailyForecast]
+    let forecast: [WeatherData]
+    let viewModel: WeatherViewModel
     
     var body: some View {
-        List(forecast) { day in
+        List(forecast) { weather in
             HStack {
-                Text(formatDate(day.date))
+                Text(viewModel.formatDate(weather.dtTxt))
                 Spacer()
-                Text("\(Int(day.temperatureLow))°C - \(Int(day.temperatureHigh))°C")
-                Text(day.condition)
+                Text(viewModel.formatTemperature(weather.main.temp))
+                Text(weather.weather.first?.main ?? "")
             }
         }
-    }
-    
-    private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE"
-        return formatter.string(from: date)
     }
 }
  
